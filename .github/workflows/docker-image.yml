@@ -18,6 +18,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ohtehila/webapp:${{github.run_number }}-${{github.sha }}
     - name: docker login
-      run: docker login -u ${{secrets.USR }} -p ${{secrets.PASS }}
+      run: docker login -u ${{secrets.DOCKER_USER }} -p ${{secrets.DOCKER_PASS }}
     - name: push the Docker image
       run: docker push ohtehila/webapp:${{github.run_number }}-${{github.sha }}
